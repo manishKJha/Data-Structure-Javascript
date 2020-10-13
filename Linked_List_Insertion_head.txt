@@ -1,4 +1,4 @@
-****** use this link to execute https://repl.it/languages/javascript *******
+******can use this link(https://repl.it/languages/javascript)to execute or prefer online eitor which has node*******
 
 class Node{
    constructor(data){
