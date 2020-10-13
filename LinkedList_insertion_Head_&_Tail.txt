@@ -19,6 +19,19 @@ LinkedList.prototype.insertAtBegnning = function(data){
   this.head = newNode;
   return this;
 }
+LinkedList.prototype.insertAtEnd = function(data){
+let newNode = new Node(data);
+if(this.isEmpty()){
+  this.head = newNode;
+  }else{
+    let temp = this.head;
+    while(temp.next != null){
+      temp = temp.next;
+    }
+    temp.next= newNode;
+  }
+  return this
+}
 
 LinkedList.prototype.isEmpty = function(){
   return (this.head == null)
@@ -42,4 +55,5 @@ LinkedList.prototype.printList = function(){
 }
 let lst = new LinkedList();
 lst.insertAtBegnning(10);
+lst.insertAtEnd(13);
 lst.printList();
