@@ -1,0 +1,48 @@
+****** use this link to execute https://repl.it/languages/javascript *******
+
+class Node{
+   constructor(data){
+     this.data = data,
+     this.next = null
+   }
+}
+class LinkedList{
+  constructor(){
+    this.head = null
+  }
+}
+
+let list = new LinkedList();
+LinkedList.prototype.insertAtBegnning = function(data){
+  let newNode = new Node(data);
+  newNode.next = this.head;
+  this.head = newNode;
+  return this;
+}
+
+LinkedList.prototype.isEmpty = function(){
+  return (this.head == null)
+}
+
+LinkedList.prototype.printList = function(){
+  if(this.isEmpty()){
+    console.log("List Is Empty")
+    return false;
+  }
+  else{
+     let temp = this.head;
+     while(temp != null){
+     process.stdout.write(String(temp.data));
+     process.stdout.write(" -> ");
+     temp = temp.next;
+    }
+   console.log(null);
+   return true;
+  }
+}
+let lst = new LinkedList();
+for(var i=0; i<10; i++){
+lst.insertAtBegnning(i);
+}
+lst.printList();
+console.log("Hello manish", list);
