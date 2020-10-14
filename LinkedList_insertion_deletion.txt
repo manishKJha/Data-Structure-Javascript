@@ -1,0 +1,93 @@
+******can use this link(https://repl.it/languages/javascript)to execute or prefer online eitor which has node*******
+
+class Node{
+   constructor(data){
+     this.data = data,
+     this.next = null
+   }
+}
+class LinkedList{
+  constructor(){
+    this.head = null
+  }
+}
+
+let list = new LinkedList();
+LinkedList.prototype.insertAtBegnning = function(data){
+  let newNode = new Node(data);
+  newNode.next = this.head;
+  this.head = newNode;
+  return this;
+}
+LinkedList.prototype.insertAtEnd = function(data){
+let newNode = new Node(data);
+if(this.isEmpty()){
+  this.head = newNode;
+  }else{
+    let temp = this.head;
+    while(temp.next != null){
+      temp = temp.next;
+    }
+    temp.next= newNode;
+  }
+  return this
+}
+
+LinkedList.prototype.insertAtPosition = function(data , after){
+  let newNode = new Node(data);
+  let temp = this.head;
+  if(temp == null){
+    this.head = newNode;
+  }
+  else{
+    while(temp.data != after){
+        temp = temp.next;
+    }
+      let tmpvar = temp.next;
+      temp.next = newNode;
+      newNode.next = tmpvar;
+  }
+  return this;
+}
+
+LinkedList.prototype.isEmpty = function(){
+  return (this.head == null);
+}
+
+LinkedList.prototype.deleteNode = function(data){
+  let temp = this.head;
+  if(temp.next == null && temp.data == data){
+     this.head = temp.next;
+  }else{
+    while(temp.next.data != data){
+           temp = temp.next;
+    }
+    temp.next = temp.next.next;
+  }
+  return this;
+}
+
+LinkedList.prototype.printList = function(){
+  if(this.isEmpty()){
+    console.log("List Is Empty")
+    return false;
+  }
+  else{
+     let temp = this.head;
+     while(temp != null){
+     process.stdout.write(String(temp.data));
+     process.stdout.write(" -> ");
+     temp = temp.next;
+    }
+   console.log(null);
+   return true;
+  }
+}
+let lst = new LinkedList();
+
+lst.insertAtBegnning(5);
+lst.insertAtEnd(11);
+lst.insertAtPosition(19,5);
+lst.printList();
+lst.deleteNode(19);
+lst.printList();
